@@ -18,7 +18,6 @@ AFRAME.registerComponent('scene-init-code', {
   },
 });
 
-window.addEventListener("resize", resizeUi);
 function setScene() {
 
   if (sceneReady == true) {
