@@ -1,0 +1,31 @@
+.button {
+    background-color: #3C3C3B;
+    font-size: 20px;
+    line-height: 30px;
+    height: 40px;
+    color: #fff;
+    min-width: 80px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    outline: none;
+    overflow: hidden;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    color: white;
+  }
+
+  .button:hover,
+  .button:focus {
+    opacity: .75;
+  }
+
+  .column {
+    position: absolute;
+    right: 0px;
+    font-family: sans-serif, monospace;
+    font-family: sans-serif, monospace;
+
+  }

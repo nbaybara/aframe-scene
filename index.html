@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Demo Scenes</title>
+  <meta name="description" content="DEmo - A-Frame">
+  <!--FOR IOS PHONE-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <script src="/dist/aframe-master.js"></script>
+  <script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script>
+  <script src="/assets/js/scripts.js"></script>
+</head>
+
+
+<style>
+  .button {
+
+    background-color: #3C3C3B;
+    font-size: 20px;
+    line-height: 30px;
+    height: 40px;
+    color: #fff;
+    min-width: 80px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    outline: none;
+    overflow: hidden;
+    text-transform: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    color: white;
+    transition: all 0.6s;
+  }
+
+  .button:hover,
+  .button:focus {
+    opacity: .75;
+  }
+
+  .infotext,
+  .infotextvideo {
+    background-color: black;
+    z-index: 9999;
+    position: absolute;
+    opacity: 0.50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5em;
+    padding: 0.5em;
+    font-size: 1.2em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    line-height: 1.1em;
+    bottom: 0px;
+    width: 40vh;
+    height: 20vh;
+  }
+
+  .column {
+    position: absolute;
+    right: 0px;
+    font-family: sans-serif, monospace;
+    font-family: sans-serif, monospace;
+
+  }
+</style>
+
+
+<a-scene id="mainScene" background="color: #0x00FF00" raycaster="objects: .clickable" scene-init-code follow-cam
+  gltf-model="dracoDecoderPath: url(https://d1vlj71acq3rf7.cloudfront.net/decoder/draco_decoder.wasm)"
+  color-space=" sRGB" renderer="gammaOutput: true, physicallyCorrectLights: false; antialias:  true"
+  cursor="rayOrigin: mouse">
+  <a-assets>
+
+    <!--modal options-->
+    <a-asset-item id="glbmodal" src="./assets/optionfirst.glb">
+      <a-asset-item id="secondglbmodal" src="./assets/optionsecond.glb">
+
+      </a-asset-item>
+
+      <img id="fall" src="fall.png" alt="">
+      <img id="goggles" src="goggles.png" alt="">
+      <img id="optionfirst" src="./assets/img/op1.png" alt="">
+      <img id="optionsecond" src="./assets/img/op2.png" alt="">
+      <img id="shadow2" src="../../assets/img/radial-shadow-2.png" alt="">
+      <img id="hsIcon" src="assets/XR-Hotspot.png" alt="">
+
+      <!-- MODAL OPTIONS THUMBNAIL-->
+
+      <img id="optionsecondthumb" alt=""
+        src="https://img-sugartech.mncdn.com/cdn.sugartech/mottobucket/Simurg/ModernBo%C4%9Fa%7CYa%C4%9Fl%C4%B1BoyaTablo_19999.jpg">
+
+      <img id="optionfirstthumb" alt=""
+        src="https://img-sugartech.mncdn.com/cdn.sugartech/mottobucket/Simurg/%C4%B0%C3%A7imdenGe%C3%A7enRenkler%7CYa%C4%9Fl%C4%B1BoyaTablo_19991.jpg">
+
+      <video id="video" loop crossorigin="anonymous" playsinline webkit-playsinline
+        src="/assets/pexels-bethe-observer-5402769.mp4">
+      </video>
+
+  </a-assets>
+
+  <a-entity id="maincameraContainer" position="-5 -3 -0.6">
+
+    <a-entity id="maincamera" scale="1 1 1" static-body
+      orbit-controls="initialPosition: 10 4 40; autoRotate: true; autoRotateSpeed: 0.1; enableKeys: false; enablePan: false; minAzimuthAngle:  5;  maxAzimuthAngle:  5;  maxDistance:  23;  maxPolarAngle:  95;  minDistance:  15;  minPolarAngle:  65;  minZoom:  10; screenSpacePanning: false; target: 5 4 1"
+      rotation="" look-controls="enabled: false" data-aframe-inspector-original-camera="" cursor="rayOrigin: mouse"
+      camera="active: true; fov: 45" wasd-controls="enabled: false">
+    </a-entity>
+  </a-entity>
+
+
+  <a-entity id="intCameraRig" position="-1.21 0.64 0.33" rotation="0 112.18 0">
+    <a-entity id="intCamera" camera="active: false; fov: 45" position="0 0 0" look-controls="enabled: false">
+    </a-entity>
+  </a-entity>
+
+
+  <a-entity id="intCameraRig2" position="-0.4 0.64 0.61" rotation="0 200.38 0">
+    <a-entity id="intCamera2" camera="active: false; fov: 45" position="0 0 0" look-controls="enabled: true">
+    </a-entity>
+
+  </a-entity>
+
+  <a-entity id="scene1" visible="true">
+
+    <div class="infotext">
+      <h4>Scene Info</h4>
+      <span>
+        *Click to thumbnails to change paint modal
+      </span>
+      <span>
+        *Click to annotation to see table in lifestyle
+      </span>
+    </div>
+
+    <a-entity id="lookCube" geometry="" static-body="shape: box" position="0 0 0" scale="0 0 0"></a-entity>
+    <a-entity id="modelcontainer" position="0 0 -3">
+
+      <a-gltf-model id="firstmodal" class="firstmodal" position="-.35 2 .55" rotation="0 20 0" scale="5 5 5"
+        src="#glbmodal" visible="true">
+      </a-gltf-model>
+
+      <a-gltf-model id="secondmodal" class="secondmodal" position="-.35 0 .55" rotation="0 20 0" scale="5 5 5"
+        src="#secondglbmodal" visible="false">
+      </a-gltf-model>
+    </a-entity>
+
+
+
+    <a-entity id="hotspots" scale="4 4 4" visible="true">
+
+      <a-entity id="demoHotspot" class="clickable sceneHotspotIcon hotspotIcon"
+        hotspots-component="hstarget: #demoHs1; closetarget: #hsClose1; assetlocation: assets/hotspots/athomeop1.png; hsshader: flat; hotspotname: demoHotspot"
+        position="0 2 -0.45" look-at="#lookCube" geometry="primitive: circle"
+        material="src: #hsIcon; shader: flat; side: double" scale="0.1 0.1 0.1" rotation="0 20 0" visible>
+
+        <a-entity id="demoHotspotBtn1" geometry="" scale="4 4 4"
+          material="opacity: 0; transparent: true; depthTest: false"></a-entity>
+      </a-entity>
+
+      <a-entity id="demoHs1" class="sceneHotspot" position="0.1 1.5 -0.5" look-at="#lookCube" geometry=""
+        material="src: ; shader: flat; transparent: true;" scale="1 1 0.05" rotation="0 20 0" visible="false">
+
+        <a-entity id="hsClose1" geometry=""
+          material="alphaTest: 0.99; opacity: 0; blending: none; depthTest: false; depthWrite: false"
+          scale="0.27 0.2 -429.80" position="0.44 0.25 50" class="clickable"></a-entity>
+
+      </a-entity>
+
+
+      <!--Second annotations-->
+      <a-entity id="demoHotspot1" class="clickable sceneHotspotIcon hotspotIcon"
+        hotspots-component="hstarget: #demoHs2; closetarget: #hsClose2; assetlocation: assets/hotspots/paints.jpeg; hsshader: flat; hotspotname: demoHotspot"
+        position="0.8 2 -0.9" look-at="#lookCube" geometry="primitive: circle"
+        style="background-color: black; opacity:0.5;" material="src: #hsIcon; shader: flat; side: double"
+        scale="0.1 0.1 0.1" rotation="0 20 0" visible>
+
+      </a-entity>
+
+      <a-entity id="demoHs2" class="sceneHotspot" position="1 2 -0.5" look-at="#lookCube" geometry=""
+        material="src: ; shader: flat; transparent: true;" scale="0.5 0.5 0.01" rotation="0 20 0" visible="false">
+
+        <a-entity id="hsClose2" geometry=""
+          material="alphaTest: 0.99; opacity: 0; blending: none; depthTest: false; depthWrite: false"
+          scale="0.27 0.2 -429.80" position="0.44 0.25 50" class="clickable"></a-entity>
+
+      </a-entity>
+
+
+
+    </a-entity>
+
+    <a-image id="optionfirstprice" src="#optionfirst" width="7" position="0.1 0 -2" height="3.5" scale="1 1 1"
+      look-at="#lookCube" animation="property: position; from: 0 2.8 -6; to: 4.25 6 -6; delay: 1000; dur: 1000"
+      rotation="0 20 0" visible="true">
+    </a-image>
+
+    <a-image id="optionsecondprice" src="#optionsecond" width="7" position="0.1 0 -2" height="3.5" scale="1 1 1"
+      look-at="#lookCube" animation="property: position; from: 0 2.8 -6; to: 4.25 6 -6; delay: 1000; dur: 1000"
+      rotation="0 20 0" visible="false">
+    </a-image>
+
+    <a-entity id="optionimg" onclick="toFirst()">
+
+      <a-curvedimage class="clickable" id="firstmodalThumb" src="#optionfirstthumb" radius="5.7" theta-length="18"
+        height=".8" position="0 0.9 0" scale="2 2 2"
+        animation="property: rotation; from: 0 180 0; to: 0 100 0; delay: 750; dur: 1000" visible="true">
+      </a-curvedimage>
+
+    </a-entity>
+
+    <a-entity id="optionimg2" onclick="toSecond()">
+
+      <a-curvedimage class="clickable" id="secondmodalThumb" src="#optionsecondthumb" radius="5.7" theta-length="18"
+        height=".8" position="0 0.9 0" scale="2 2 2"
+        animation="property: rotation; from: 0 180 0; to: 0 130 0; delay: 750; dur: 1000" visible="true">
+      </a-curvedimage>
+    </a-entity>
+    <a-cylinder position="1 0.9 1" radius="12" height="2" side="back" open-ended="true" color="#efe5ac"></a-cylinder>
+
+  </a-entity>
+
+
+
+  <a-entity id="scene2" visible="false" isactive="false">
+
+    <div class="infotextvideo" style="opacity: 0;">
+      <h4>Video Info</h4>
+      <span>
+        *Enjoy video!
+      </span>
+    </div>
+
+    <a-videosphere src="#video" play-on-click>
+    </a-videosphere>
+
+    <a-entity position="0 0 -1.5" text="align:center;
+                  width:6;
+                  wrapCount:1;
+                  color: white;
+                  value: Click or tap to start video" hide-on-play="#video">
+    </a-entity>
+
+  </a-entity>
+
+  <div class="column" style="z-index: 999999;"><button class="button" title="Scene1" onclick="scene1()">Scene1</button>
+    <button class="button" title="Scene2" onclick="scene2()">Scene2</button>
+  </div>
+  <a-light type="directional" color="red" intensity="0.2" position="-1 2 1"></a-light>
+  <a-light type="ambient" color="#fff"></a-light>
+
+
+</a-scene>
+
+
+</body>
+
+</html>
