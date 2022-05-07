@@ -19,27 +19,9 @@ AFRAME.registerComponent('scene-init-code', {
 });
 
 window.addEventListener("resize", resizeUi);
-window.addEventListener("load", resizeUi);
-
-function resizeUi() {
-  var winWidth = window.innerWidth;
-  var winHeight = window.innerHeight;
-  var newUiSize = "scale(" + winWidth / 2700 + "," + winWidth / 2700 + ")";
-  testSize = winWidth / 2700;
-
-  if (testSize < .5) {
-    newUiSize = "scale(0.5,0.5)";
-  } else {
-    document.getElementById("trimContainer").style.transform = newUiSize;
-    document.getElementById("chevyLogo").style.transform = newUiSize;
-  }
-};
-
-
 function setScene() {
 
   if (sceneReady == true) {
-    console.log("here");
     maincamera.setAttribute('orbit-controls', 'autoRotate: false; autoRotateSpeed: 0.1; enableKeys: false; enablePan: false; minAzimuthAngle:  5;  maxAzimuthAngle:  5;  maxDistance:  23;  maxPolarAngle:  95;  minDistance:  15;  minPolarAngle:  65;  minZoom:  10; screenSpacePanning: false; target: 5 4 1');
   }
 }
@@ -127,10 +109,6 @@ AFRAME.registerComponent('hotspots-component', {
 
   }
 });
-
-
-
-
 
 
 //we can call it like that, but there is a reason
