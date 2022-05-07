@@ -2,8 +2,12 @@ Aframe scene
 
 simply run:
 
-npm install
-npm run serve
+
+
+1-npm install 
+
+
+2-npm run serve
 
 
 Youtube video:
